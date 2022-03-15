@@ -30,6 +30,8 @@ impl Iterator for Counter {
 pub fn shoes_in_size(shoes: Vec<Shoe>, shoe_size: u32) -> Vec<Shoe> {
     shoes.into_iter().filter(|s| s.size == shoe_size).collect()
 }
+
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -64,4 +66,15 @@ mod tests {
             ]
         );
     }
+    #[test]
+    fn trying_other_iter_trait_methods() {
+        let sum: u32  = Counter::new()
+            .zip(Counter::new().skip(1))
+            .map(|(x, y)| x * y)
+            .filter(|x| x % 3 == 0)
+            .sum();
+        assert_eq!(18, sum);
+            
+    }
+    
 }

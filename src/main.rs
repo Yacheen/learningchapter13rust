@@ -2,6 +2,7 @@ use std::thread;
 use std::time::Duration;
 mod iterators;
 
+
 //the generic is a closure that takes a u32 and returns a u32
 struct Cacher<T> where T: Fn(u32) -> u32 {
     calculation: T,
@@ -51,6 +52,7 @@ fn generate_workout(intensity: u32, random_number: u32) {
 }
 
 fn main() {
+    //honestly i dont get iterators what the fuck is going on
     let simulated_user_specified_value = 69;
     let simulated_random_number = 3;
     
@@ -59,3 +61,4 @@ fn main() {
     
    // iterators::iterations();
 }
+
